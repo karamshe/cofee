@@ -8,17 +8,16 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         String coffeeMilk = "src/main/resources/Coffee.txt";
-        int coffeeSize;
-
+        int coffeeSize = -1;
+        Scanner console = new Scanner(System.in);
         System.out.println("Размер кофе: 0=маленький 1=средний 2=большой");
-        do {
+        while (true) {
             System.out.println("Пришёл новый клиент!");
             System.out.println("Сделайте свой выбор: ");
-            Scanner console = new Scanner(System.in);
             coffeeSize = console.nextInt();
-            //Добавить капучино на миндальном молоке
-            //Добавить капучино на кокосовом молоке
-            //Добавить капучино на овсяном соевом молоке
+            if (coffeeSize == 3) {
+                break;
+            }
             System.out.println("Добавить капучино на миндальном молоке?");
             Scanner milk = new Scanner(System.in);
             String answer = milk.nextLine();
@@ -57,9 +56,8 @@ public class Main {
 
             }
         }
-        while (coffeeSize != 3);
-        System.out.println("Кофейня закончила работу на сегодня. ");
     }
+
 
     private static int sizeSelection(int coffeeSize) {
         if (coffeePrice == null) {

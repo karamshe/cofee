@@ -31,6 +31,6 @@ public class SizeTypesFileImpl implements SizeTypes {
 
     private SizeType newSizeType(String line) {
         String[] data = line.split(",");
-        return new SizeType(data[0]);
+        return new SizeType(data[0], Double.parseDouble(data[1]));
     }
 }

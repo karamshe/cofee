@@ -2,10 +2,11 @@ package org.example.model;
 
 public class SizeType {
     private String sizeName;
+    private Double price;
 
-
-    public SizeType(String sizeName) {
+    public SizeType(String sizeName, Double price) {
         this.sizeName = sizeName;
+        this.price = price;
 
     }
 
@@ -17,5 +18,12 @@ public class SizeType {
         this.sizeName = sizeName;
     }
 
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
 }
 

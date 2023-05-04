@@ -30,7 +30,7 @@ public class MilkTypesFileImpl implements MilkTypes {
 
     private MilkType newMilkType(String line) {
         String[] data = line.split(",");
-        return new MilkType(data[0]);
+        return new MilkType(data[0], Double.parseDouble(data[1]));
     }
 
 }

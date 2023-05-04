@@ -1,7 +1,12 @@
 package org.example;
 
-import java.io.*;
-import java.util.Scanner;
+import org.example.model.CoffeeType;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.List;
 
 public class Main {
     static int coffeePrice[];
@@ -14,7 +19,7 @@ public class Main {
 
         int user = 0;
         while (true) {
-            user+=1;
+            user += 1;
             System.out.println("Пришёл новый клиент!");
 
             System.out.println("Какой размер кофе вы хотите?");
@@ -30,13 +35,10 @@ public class Main {
 
             System.out.println("Какой вид кофе вы хотите?");
             System.out.println("Доступные варианты:");
-            try (BufferedReader br = new BufferedReader(new FileReader(Coffee))) {
-                String line;
-                while ((line = br.readLine()) != null) {
-                    System.out.println(line);
-                }
-            } catch (IOException e) {
-                System.err.format("IOException: %s%n", e);
+            CoffeeTypes coffeeTypes = new CoffeeTypesFileImpl(new File(Coffee));
+            List<CoffeeType> allCoffeeTypes = coffeeTypes.getAllCoffeeTypes();
+            for (CoffeeType type : allCoffeeTypes) {
+                System.out.println(type.getCoffeeName());
             }
 
             System.out.println("Какое молоко использовать?");

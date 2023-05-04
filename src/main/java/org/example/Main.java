@@ -1,6 +1,8 @@
 package org.example;
 
 import org.example.model.CoffeeType;
+import org.example.model.MilkType;
+import org.example.model.SizeType;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -22,16 +24,15 @@ public class Main {
             user += 1;
             System.out.println("Пришёл новый клиент!");
 
+
             System.out.println("Какой размер кофе вы хотите?");
-            System.out.println("Доступные варианты");
-            try (BufferedReader br = new BufferedReader(new FileReader(Size))) {
-                String line;
-                while ((line = br.readLine()) != null) {
-                    System.out.println(line);
-                }
-            } catch (IOException e) {
-                System.err.format("IOException: %s%n", e);
+            System.out.println("Доступные варианты:");
+            SizeTypes sizeTypes = new SizeTypesFileImpl(new File(Size));
+            List<SizeType> allSizeTypes = sizeTypes.getAllSizeTypes();
+            for (SizeType type : allSizeTypes) {
+                System.out.println(type.getSizeName());
             }
+
 
             System.out.println("Какой вид кофе вы хотите?");
             System.out.println("Доступные варианты:");
@@ -41,16 +42,15 @@ public class Main {
                 System.out.println(type.getCoffeeName());
             }
 
+
             System.out.println("Какое молоко использовать?");
             System.out.println("Доступные варианты:");
-            try (BufferedReader br = new BufferedReader(new FileReader(Milk))) {
-                String line;
-                while ((line = br.readLine()) != null) {
-                    System.out.println(line);
-                }
-            } catch (IOException e) {
-                System.err.format("IOException: %s%n", e);
+            MilkTypes milkTypes = new MilkTypesFileImpl(new File(Milk));
+            List<MilkType> allMilkTypes = milkTypes.getAllMilkTypes();
+            for (MilkType type : allMilkTypes) {
+                System.out.println(type.getMilkName());
             }
+
             if (user == 1) {
                 break;
             }

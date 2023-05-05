@@ -36,10 +36,10 @@ public class Main {
             }
             System.out.println("Сделайте выбор");
             Scanner SizeScanner = new Scanner(System.in);
-            int selecteSize = SizeScanner.nextInt();
+            int selectedSize = SizeScanner.nextInt();
 
-            if (selecteSize >= 1 && selecteSize <= allSizeTypes.size()) {
-                SizeType selectedSizeType = allSizeTypes.get(selecteSize - 1);
+            if (selectedSize >= 1 && selectedSize <= allSizeTypes.size()) {
+                SizeType selectedSizeType = allSizeTypes.get(selectedSize - 1);
                 System.out.println("Вы выбрали: " + selectedSizeType.getSizeName());
             } else {
                 System.out.println("Некорректный выбор.");

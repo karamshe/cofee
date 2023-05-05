@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
     static int coffeePrice[];
@@ -29,8 +30,19 @@ public class Main {
             System.out.println("Доступные варианты:");
             SizeTypes sizeTypes = new SizeTypesFileImpl(new File(Size));
             List<SizeType> allSizeTypes = sizeTypes.getAllSizeTypes();
-            for (SizeType type : allSizeTypes) {
-                System.out.println(type.getSizeName());
+            for (int i = 0; i < allSizeTypes.size(); i++) {
+                SizeType type = allSizeTypes.get(i);
+                System.out.println((i + 1) + ". " + type.getSizeName());
+            }
+            System.out.println("Сделайте выбор");
+            Scanner SizeScanner = new Scanner(System.in);
+            int selecteSize = SizeScanner.nextInt();
+
+            if (selecteSize >= 1 && selecteSize <= allSizeTypes.size()) {
+                SizeType selectedSizeType = allSizeTypes.get(selecteSize - 1);
+                System.out.println("Вы выбрали: " + selectedSizeType.getSizeName());
+            } else {
+                System.out.println("Некорректный выбор.");
             }
 
 
@@ -38,8 +50,19 @@ public class Main {
             System.out.println("Доступные варианты:");
             CoffeeTypes coffeeTypes = new CoffeeTypesFileImpl(new File(Coffee));
             List<CoffeeType> allCoffeeTypes = coffeeTypes.getAllCoffeeTypes();
-            for (CoffeeType type : allCoffeeTypes) {
-                System.out.println(type.getCoffeeName());
+            for (int i = 0; i < allCoffeeTypes.size(); i++) {
+                CoffeeType type = allCoffeeTypes.get(i);
+                System.out.println((i + 1) + ". " + type.getCoffeeName());
+            }
+            System.out.println("Сделайте выбор");
+            Scanner CoffeeScanner = new Scanner(System.in);
+            int selectedCoffee = CoffeeScanner.nextInt();
+
+            if (selectedCoffee >= 1 && selectedCoffee <= allCoffeeTypes.size()) {
+                CoffeeType selectedCoffeeType = allCoffeeTypes.get(selectedCoffee - 1);
+                System.out.println("Вы выбрали: " + selectedCoffeeType.getCoffeeName());
+            } else {
+                System.out.println("Некорректный выбор.");
             }
 
 
@@ -47,9 +70,21 @@ public class Main {
             System.out.println("Доступные варианты:");
             MilkTypes milkTypes = new MilkTypesFileImpl(new File(Milk));
             List<MilkType> allMilkTypes = milkTypes.getAllMilkTypes();
-            for (MilkType type : allMilkTypes) {
-                System.out.println(type.getMilkName());
+            for (int i = 0; i < allMilkTypes.size(); i++) {
+                MilkType type = allMilkTypes.get(i);
+                System.out.println((i + 1) + ". " + type.getMilkName());
             }
+            System.out.println("Сделайте выбор");
+            Scanner MilkScanner = new Scanner(System.in);
+            int selectedMilk = MilkScanner.nextInt();
+
+            if (selectedMilk >= 1 && selectedMilk <= allMilkTypes.size()) {
+                MilkType selectedMilkType = allMilkTypes.get(selectedMilk - 1);
+                System.out.println("Вы выбрали: " + selectedMilkType.getMilkName());
+            } else {
+                System.out.println("Некорректный выбор.");
+            }
+
 
             if (user == 1) {
                 break;

@@ -21,6 +21,8 @@ public class Main {
         String Size = "src/main/resources/Size.txt";
 
         int user = 0;
+
+
         while (true) {
             user += 1;
             System.out.println("Пришёл новый клиент!");
@@ -38,8 +40,9 @@ public class Main {
             Scanner SizeScanner = new Scanner(System.in);
             int selectedSize = SizeScanner.nextInt();
 
+            SizeType selectedSizeType = null;
             if (selectedSize >= 1 && selectedSize <= allSizeTypes.size()) {
-                SizeType selectedSizeType = allSizeTypes.get(selectedSize - 1);
+                selectedSizeType = allSizeTypes.get(selectedSize - 1);
                 System.out.println("Вы выбрали: " + selectedSizeType.getSizeName());
             } else {
                 System.out.println("Некорректный выбор.");
@@ -58,8 +61,9 @@ public class Main {
             Scanner CoffeeScanner = new Scanner(System.in);
             int selectedCoffee = CoffeeScanner.nextInt();
 
+            CoffeeType selectedCoffeeType = null;
             if (selectedCoffee >= 1 && selectedCoffee <= allCoffeeTypes.size()) {
-                CoffeeType selectedCoffeeType = allCoffeeTypes.get(selectedCoffee - 1);
+                selectedCoffeeType = allCoffeeTypes.get(selectedCoffee - 1);
                 System.out.println("Вы выбрали: " + selectedCoffeeType.getCoffeeName());
             } else {
                 System.out.println("Некорректный выбор.");
@@ -78,14 +82,16 @@ public class Main {
             Scanner MilkScanner = new Scanner(System.in);
             int selectedMilk = MilkScanner.nextInt();
 
+            MilkType selectedMilkType = null;
             if (selectedMilk >= 1 && selectedMilk <= allMilkTypes.size()) {
-                MilkType selectedMilkType = allMilkTypes.get(selectedMilk - 1);
+                selectedMilkType = allMilkTypes.get(selectedMilk - 1);
                 System.out.println("Вы выбрали: " + selectedMilkType.getMilkName());
             } else {
                 System.out.println("Некорректный выбор.");
             }
-
-
+            System.out.println("Вы выбрали:");
+            System.out.println(selectedSizeType.getSizeName() + " кофе с " + selectedCoffeeType.getCoffeeName() + " и " + selectedMilkType.getMilkName() + " молоко.");
+            System.out.println("Цена:");
             if (user == 1) {
                 break;
             }

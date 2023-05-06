@@ -90,8 +90,14 @@ public class Main {
                 System.out.println("Некорректный выбор.");
             }
             System.out.println("Вы выбрали:");
-            System.out.println(selectedSizeType.getSizeName() + " кофе с " + selectedCoffeeType.getCoffeeName() + " и " + selectedMilkType.getMilkName() + " молоко.");
-            System.out.println("Цена:");
+            System.out.println(selectedSizeType.getSizeName() + " кофе  " + selectedCoffeeType.getCoffeeName() + " и " + selectedMilkType.getMilkName() + " молоко.");
+
+            double totalCoffeePrice = selectedCoffeeType.getPrice();
+            double totalMilkPrice = selectedMilkType.getPrice();
+            double totalSizePrice = selectedSizeType.getPrice();
+            double totalPrice = (totalCoffeePrice + totalMilkPrice)*totalSizePrice;
+            System.out.println("Общая стоимость заказа: " + totalPrice + " рублей");
+
             if (user == 1) {
                 break;
             }

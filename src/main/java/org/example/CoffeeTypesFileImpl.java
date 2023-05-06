@@ -39,7 +39,7 @@ public class CoffeeTypesFileImpl implements CoffeeTypes {
      * @param line строка
      * @return новый объект типа кофе
      */
-    private CoffeeType newCoffeeType(String line) {
+    public CoffeeType newCoffeeType(String line) {
         String[] data = line.split(","); //разделяем строку на массив строк по ключевому символу
         return new CoffeeType(data[0], Double.parseDouble(data[1])); //первый элемент соответствует названию кофе, второй - цене
     }

@@ -4,9 +4,7 @@ import org.example.model.CoffeeType;
 import org.example.model.MilkType;
 import org.example.model.SizeType;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
@@ -95,7 +93,7 @@ public class Main {
             double totalCoffeePrice = selectedCoffeeType.getPrice();
             double totalMilkPrice = selectedMilkType.getPrice();
             double totalSizePrice = selectedSizeType.getPrice();
-            double totalPrice = (totalCoffeePrice + totalMilkPrice)*totalSizePrice;
+            double totalPrice = (totalCoffeePrice + totalMilkPrice) * totalSizePrice;
             System.out.println("Общая стоимость заказа: " + totalPrice + " рублей");
 
             if (user == 1) {
